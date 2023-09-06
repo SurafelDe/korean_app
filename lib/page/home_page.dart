@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
@@ -77,11 +79,16 @@ class Home extends StatelessWidget {
                                   feedback: Container(
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
-                                            image: CachedNetworkImageProvider(
+                                            image: (controller.users[index].images?[
+                                            controller
+                                                .currentImageIndex].startsWith("http") ?? true) ?
+                                            CachedNetworkImageProvider(
                                                 controller.users[index].images?[
                                                         controller
                                                             .currentImageIndex] ??
-                                                    ""),
+                                                    "") : MemoryImage(
+                                                Uri.parse(controller.users[index].images?[controller.currentImageIndex] ?? "").data!.contentAsBytes()
+                                            ) as ImageProvider ,
                                             fit: BoxFit.cover),
                                         border: Border.all(
                                             color: Colors.grey, width: 0.6),
@@ -105,12 +112,16 @@ class Home extends StatelessWidget {
                                           EdgeInsets.symmetric(horizontal: 10),
                                       decoration: BoxDecoration(
                                           image: DecorationImage(
-                                              image: CachedNetworkImageProvider(
-                                                  controller.users[index]
-                                                              .images?[
-                                                          controller
-                                                              .currentImageIndex] ??
-                                                      ""),
+                                              image: (controller.users[index].images?[
+                                              controller
+                                                  .currentImageIndex].startsWith("http") ?? true) ?
+                                              CachedNetworkImageProvider(
+                                                  controller.users[index].images?[
+                                                  controller
+                                                      .currentImageIndex] ??
+                                                      "") : MemoryImage(
+                                                  Uri.parse(controller.users[index].images?[controller.currentImageIndex] ?? "").data!.contentAsBytes()
+                                              ) as ImageProvider ,
                                               fit: BoxFit.cover),
                                           border: Border.all(
                                               color: Colors.grey.shade600,
