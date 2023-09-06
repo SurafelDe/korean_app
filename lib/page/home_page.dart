@@ -97,15 +97,7 @@ class Home extends StatelessWidget {
                                     width: 300,
                                     height: 500,
                                   ),
-                                  childWhenDragging: Container(
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: Colors.grey, width: 0.6),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(20))),
-                                    width: 300,
-                                    height: 500,
-                                  ),
+                                  childWhenDragging: Container(),
                                   child: Stack(children: [
                                     Container(
                                       margin:
