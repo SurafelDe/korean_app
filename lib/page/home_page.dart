@@ -420,8 +420,7 @@ class Home extends StatelessWidget {
                               options: CarouselOptions(
                                   height: Get.height - 200,
                                   aspectRatio: 2.0,
-                                  // enlargeCenterPage: true,
-                                  // autoPlayInterval: const Duration(seconds: 6),
+                                  scrollPhysics: const NeverScrollableScrollPhysics(),
                                   scrollDirection: Axis.horizontal,
                                   autoPlay: false,
                                   viewportFraction: 0.9,
