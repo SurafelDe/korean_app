@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:badges/badges.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
@@ -56,11 +57,32 @@ class Home extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Image.asset('assets/icons/btcon_40.png')
+              Align(
+                alignment: Alignment.centerRight,
+                child:
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Badge(
+                      badgeContent: const Icon(
+                        Icons.fiber_manual_record,
+                        color: Colors.red,
+                        size: 1,
+                      ),
+                      showBadge: true,
+                      // showBadge:true,
+                      position: BadgePosition.topEnd(
+                          top: -2, end: -3),
+                      badgeStyle: const BadgeStyle(
+                        padding: EdgeInsets.all(2),
+                      ),
+                      child: Image.asset('assets/icons/btcon_40.png')
+                    ),
+                )
+                  )
                 ],
               ),
               body: Padding(
-                padding: const EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.only(top: 12, bottom: 25),
                 child: Stack(children: [
                   controller.isLoading
                       ? loadingWidget()
@@ -92,7 +114,7 @@ class Home extends StatelessWidget {
                                             fit: BoxFit.cover),
                                         border: Border.all(
                                             color: Colors.grey, width: 0.6),
-                                        borderRadius: BorderRadius.all(
+                                        borderRadius: const BorderRadius.all(
                                             Radius.circular(20))),
                                     width: 300,
                                     height: 500,
@@ -101,7 +123,7 @@ class Home extends StatelessWidget {
                                   child: Stack(children: [
                                     Container(
                                       margin:
-                                          EdgeInsets.symmetric(horizontal: 10),
+                                      const EdgeInsets.symmetric(horizontal: 10),
                                       decoration: BoxDecoration(
                                           image: DecorationImage(
                                               image: (controller.users[index].images?[
@@ -118,16 +140,16 @@ class Home extends StatelessWidget {
                                           border: Border.all(
                                               color: Colors.grey.shade600,
                                               width: 0.5),
-                                          borderRadius: BorderRadius.all(
+                                          borderRadius: const BorderRadius.all(
                                               Radius.circular(20))),
                                       child: Container(
                                           decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
+                                            borderRadius: const BorderRadius.all(
                                                 Radius.circular(20)),
                                             border: Border.all(
                                                 color: Colors.grey.shade600,
                                                 width: 0.5),
-                                            gradient: LinearGradient(
+                                            gradient: const LinearGradient(
                                                 colors: [
                                                   Colors.black,
                                                   Colors.transparent,
@@ -181,10 +203,10 @@ class Home extends StatelessWidget {
                                                                   .start,
                                                           children: [
                                                             Container(
-                                                              height: 25,
+                                                              height: 30,
                                                               padding:
                                                                   EdgeInsets
-                                                                      .all(3),
+                                                                      .all(7),
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: Colors
@@ -194,7 +216,7 @@ class Home extends StatelessWidget {
                                                                         .all(
                                                                   Radius
                                                                       .circular(
-                                                                          10),
+                                                                          15),
                                                                 ),
                                                               ),
                                                               child: Row(
@@ -205,8 +227,7 @@ class Home extends StatelessWidget {
                                                                   const ImageIcon(
                                                                     AssetImage(
                                                                         'assets/icons/star.png'),
-                                                                    color: Colors
-                                                                        .redAccent,
+                                                                    color: Color(0xff2F2F2F),
                                                                   ),
                                                                   const SizedBox(
                                                                     width: 4,
@@ -455,7 +476,7 @@ class Home extends StatelessWidget {
   }
 
   Widget loadingWidget() {
-    return Center(
+    return const Center(
         child: CircularProgressIndicator(
       color: Colors.pink,
     ));

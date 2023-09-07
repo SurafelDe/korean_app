@@ -70,7 +70,7 @@ class _HomeTabbedPageState extends State<HomeTabbedPage> {
               backgroundColor: Colors.black,
               currentIndex: pageIndex,
               type: BottomNavigationBarType.fixed,
-              selectedItemColor: Colors.redAccent,
+              selectedItemColor: Colors.pink,
               unselectedItemColor: Colors.grey[700],
               // backgroundColor: Colors.black,
               items: const [
